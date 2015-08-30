@@ -1,4 +1,4 @@
-# code_localization
+# Source Code Localization
 
 Extracts UTF-8 SENTENCES from mixed-language source code for localization.
 Assumes the characters are represented as hex code.
@@ -48,16 +48,16 @@ any of its subdirectories into an identical directory structure under 'temp'
 
 ### Translation 
 
-Now take the .out files and run them through Google translate or a translator.
+Now take the `.out` files and run them through Google translate or a translator.
 Save the translated files as `original_name.py.en` for English (for example)
-and put them with their corresponding .tagged files. 
+and put them with their corresponding `.tagged` files. 
 
-The .tagged file with the .en translation together will be used to 
+The `.tagged` file with the `.en` translation together will be used to 
 reconstruct the translated source code.
 
 ### Insertion 
 
-After putting the translated .en files in the right place, run
+After putting the translated `.en` files in the right place, run
 
 ```bash
 ./translate.py -ir ./temp en
