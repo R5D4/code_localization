@@ -30,7 +30,7 @@ to extract, we run the script as follows
 ./translate.py -xr ./Parent ./temp -t py
 ```
 
-This will extract all files ending in .py in the 'Parent' directory and
+This will extract all files ending in `.py` in the 'Parent' directory and
 any of its subdirectories into an identical directory structure under 'temp'
 
       /Current (pwd)
@@ -49,7 +49,7 @@ any of its subdirectories into an identical directory structure under 'temp'
 ### Translation 
 
 Now take the .out files and run them through Google translate or a translator.
-Save the translated files as <original_name>.py.en for English (for example)
+Save the translated files as `original_name.py.en` for English (for example)
 and put them with their corresponding .tagged files. 
 
 The .tagged file with the .en translation together will be used to 
@@ -63,7 +63,7 @@ After putting the translated .en files in the right place, run
 ./translate.py -ir ./temp en
 ```
 
-The script will combine the .tagged file and .en files to create translated
+The script will combine the `.tagged` file and `.en` files to create translated
 source code files with their original names. Now the /temp directory
 looks like
 
