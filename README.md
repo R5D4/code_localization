@@ -11,6 +11,7 @@ a translated copy of the original file.
 ## Usage examples
 
 Say we have this directory structure:
+
   /Current (pwd)
       /Parent
           /Child1
@@ -23,7 +24,7 @@ Say we have this directory structure:
 Source code are located under the Parent directory. 'Current/temp' will be
 used to hold the output.
 
-### EXTRACTION
+### Extraction 
 
 to extract, we run the script as follows
 
@@ -35,6 +36,7 @@ This will extract all files ending in .py in the 'Parent' directory and
 any of its subdirectories into an identical directory structure under 'temp'
 
 I.e.
+
   /Current (pwd)
       /Parent
       ...
@@ -48,7 +50,7 @@ I.e.
               /File3.py.tagged
               /File3.py.out
 
-### TRANSLATION
+### Translation 
 
 Now take the .out files and run them through Google translate or a translator.
 Save the translated files as <original_name>.py.en for English (for example)
@@ -57,7 +59,7 @@ and put them with their corresponding .tagged files.
 The .tagged file with the .en translation together will be used to 
 reconstruct the translated source code.
 
-### INSERTION
+### Insertion 
 
 After putting the translated .en files in the right place, run
 
