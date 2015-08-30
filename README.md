@@ -10,16 +10,14 @@ a translated copy of the original file.
 
 ## Usage examples
 
-Say we have this directory structure:
-
-  /Current (pwd)
-      /Parent
-          /Child1
-              /File1.py
-              /File2.py
-          /Child2
-              /File3.py
-      /temp
+      /Current (pwd)
+          /Parent
+              /Child1
+                  /File1.py
+                  /File2.py
+              /Child2
+                  /File3.py
+          /temp
 
 Source code are located under the Parent directory. 'Current/temp' will be
 used to hold the output.
@@ -35,20 +33,18 @@ to extract, we run the script as follows
 This will extract all files ending in .py in the 'Parent' directory and
 any of its subdirectories into an identical directory structure under 'temp'
 
-I.e.
-
-  /Current (pwd)
-      /Parent
-      ...
-      /temp
-          /Child1
-              /File1.py.tagged
-              /File1.py.out
-              /File2.py.tagged
-              /File2.py.out
-          /Child2
-              /File3.py.tagged
-              /File3.py.out
+      /Current (pwd)
+          /Parent
+          ...
+          /temp
+              /Child1
+                  /File1.py.tagged
+                  /File1.py.out
+                  /File2.py.tagged
+                  /File2.py.out
+              /Child2
+                  /File3.py.tagged
+                  /File3.py.out
 
 ### Translation 
 
