@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 from sys import argv
-import re
 import os
 import errno
 import argparse
