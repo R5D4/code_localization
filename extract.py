@@ -225,7 +225,7 @@ def recursive_insert(directory, lang):
 # ./translate.py -xr folder tempDir py rpy
 # ./translate.py -ir tempDir en
 
-parser = argparse.ArgumentParser( "Extracts and inserts translatable strings")
+parser = argparse.ArgumentParser("Extracts and inserts translatable strings")
 group = parser.add_mutually_exclusive_group()
 group.add_argument("-x", nargs=2, help="Extract")
 group.add_argument("-i", nargs=2, help="Insert")
