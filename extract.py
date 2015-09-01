@@ -234,9 +234,7 @@ group.add_argument("-ir", nargs=2, help="Recursive Insert")
 parser.add_argument("-t", nargs='+', help="File Type for recursive extraction")
 args = parser.parse_args()
 print "printing flags:"
-print "-x = {}, -i = {}, -xr = {}, -ir = {}, -t = {}".format(args.x, args.i, 
-                                                             args.xr, args.ir,
-                                                             args.t)
+print args
 
 if not (args.x or args.i or args.xr or args.ir):
     print "Please indicate either extraction or insertion."
