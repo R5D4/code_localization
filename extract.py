@@ -1,5 +1,16 @@
 #!/usr/bin/python
 
+"""
+Text Extraction and Insertion for Code Translation
+
+Extraction: 
+    Extract UTF-8 encoded sentences from a file and create a copy of the
+    original file with the extracted sentences replaced by a unique ID.
+Insertion:
+    Inserts translated sentences into the tagged file created during the
+    extraction step by replacing unique IDs with the translated sentences.
+"""
+
 from sys import argv
 import os
 import errno
@@ -225,45 +236,48 @@ def recursive_insert(directory, lang):
 # ./translate.py -xr folder tempDir py rpy
 # ./translate.py -ir tempDir en
 
-parser = argparse.ArgumentParser("Extracts and inserts translatable strings")
-group = parser.add_mutually_exclusive_group()
-group.add_argument("-x", nargs=2, help="Extract")
-group.add_argument("-i", nargs=2, help="Insert")
-group.add_argument("-xr", nargs=2, help="Recursive Extract")
-group.add_argument("-ir", nargs=2, help="Recursive Insert")
-parser.add_argument("-t", nargs='+', help="File Type for recursive extraction")
-args = parser.parse_args()
-print "printing flags:"
-print args
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser("Extracts and inserts translatable \
+strings")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-x", nargs=2, help="Extract")
+    group.add_argument("-i", nargs=2, help="Insert")
+    group.add_argument("-xr", nargs=2, help="Recursive Extract")
+    group.add_argument("-ir", nargs=2, help="Recursive Insert")
+    parser.add_argument("-t", nargs='+', help="File Type for recursive \
+extraction")
+    args = parser.parse_args()
+    print "printing flags:"
+    print args
 
-if not (args.x or args.i or args.xr or args.ir):
-    print "Please indicate either extraction or insertion."
+    if not (args.x or args.i or args.xr or args.ir):
+        print "Please indicate either extraction or insertion."
 
-elif args.xr and not args.t:
-    print "Please enter at least one file type."
-    
-elif args.xr and args.t:
-    print "Recursive extraction."
-    input_dir = args.xr[0]
-    output_dir = args.xr[1]
-    file_exts = args.t
-    recursive_extract(input_dir, output_dir, file_exts)
+    elif args.xr and not args.t:
+        print "Please enter at least one file type."
+        
+    elif args.xr and args.t:
+        print "Recursive extraction."
+        input_dir = args.xr[0]
+        output_dir = args.xr[1]
+        file_exts = args.t
+        recursive_extract(input_dir, output_dir, file_exts)
 
-elif args.ir:
-    print "Recursive insertion."
-    directory = args.ir[0]
-    lang = args.ir[1]
-    recursive_insert(directory, lang)
+    elif args.ir:
+        print "Recursive insertion."
+        directory = args.ir[0]
+        lang = args.ir[1]
+        recursive_insert(directory, lang)
 
-elif args.x:
-    print "Single-file extraction."
-    from_file = args.x[0]
-    to_dir = args.x[1]
-    extract(from_file, to_dir)
+    elif args.x:
+        print "Single-file extraction."
+        from_file = args.x[0]
+        to_dir = args.x[1]
+        extract(from_file, to_dir)
 
-elif args.i:
-    print "Single-file insertion."
-    output_file = args.i[0]
-    translated_lang = args.i[1]
-    insert(output_file, translated_lang)
+    elif args.i:
+        print "Single-file insertion."
+        output_file = args.i[0]
+        translated_lang = args.i[1]
+        insert(output_file, translated_lang)
 
